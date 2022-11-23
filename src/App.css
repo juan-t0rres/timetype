@@ -1,38 +1,135 @@
-.App {
+.content {
+  margin: 5rem auto 0 auto;
+  width: 950px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.page {
+  margin: 1rem auto 0 auto;
+  width: 70%;
+  text-align: center;
+  padding: 50px;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  background-color: #19191c;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.current-word {
+  border: 1px solid #888;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.results-modal {
+  text-align: center;
+}
+
+.wpm {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.correct {
+  color: #319917;
+}
+
+.tab {
+  flex: 0.5;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+.disabled-tab {
+  background-color: #ccc;
+}
+
+.correct-bg {
+  background-color: #319917;
+}
+
+.gbutton {
+  background-color: #319917 !important;
+  border: none !important;
+}
+
+.gbutton:hover {
+  background-color: #21660f;
+}
+
+.link-hover:hover {
+  color: #21660f;
+}
+
+.wrong {
+  color: red;
+}
+
+p {
+  font-size: 28px;
+}
+
+.title {
+  font-size: 72px;
+  color: #fff;
+}
+
+.container {
+  margin-top: 75px;
+  margin-bottom: 75px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.form {
+  width: 80%;
+  margin: 0 auto 0 auto;
+}
+
+.words {
+  text-align: left;
+  height: 45px;
+  margin-left: 50px;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 50px;
+  font-size: 28px;
+  padding: 10px;
+  background: #1e1e21;
+  border: 1px solid;
+  border-radius: 4px;
   color: white;
+  margin-bottom: 25px;
 }
 
-.App-link {
-  color: #61dafb;
+textarea:focus,
+input:focus {
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.restart {
+  font-size: 32px;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.5s ease;
+}
+
+.restart:hover {
+  color: #888;
+}
+
+.results {
+  margin: 0 auto 0 auto;
+  width: 80%;
+}
+
+.card-width {
+  width: 600px;
+  border-radius: 10px;
 }

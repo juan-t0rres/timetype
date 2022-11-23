@@ -1,4 +1,6 @@
 body {
+  background-color: #1e1e21 !important;
+  background-image: url("https://www.transparenttextures.com/patterns/real-carbon-fibre.png");
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
