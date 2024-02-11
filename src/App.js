@@ -4,7 +4,6 @@ import "shards-ui/dist/css/shards.min.css";
 import "antd/dist/antd.css";
 import "./App.css";
 import { useState, useEffect, useRef } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync } from "@fortawesome/free-solid-svg-icons";
 import * as Tone from "tone";
@@ -163,84 +162,80 @@ function App() {
   }
 
   return (
-    <Router>
+    <>
       <Navigation />
-      <Switch>
-        <Route exact path="/">
-          <div className="content">
-            <Fade>
-              <h1 className="title">
-                timetype<span className="correct">.io</span>
-              </h1>
-              <div className="container">
-                <p className="words">
-                  {currentWords.map((w, i) => {
-                    const curr = index % SIZE;
-                    if (i < history.length) {
-                      return (
-                        <span key={w} className={history[i]}>
-                          {w + " "}
+      <div className="content">
+        <Fade>
+          <h1 className="title">
+            timetype<span className="correct">.io</span>
+          </h1>
+          <div className="container">
+            <p className="words">
+              {currentWords.map((w, i) => {
+                const curr = index % SIZE;
+                if (i < history.length) {
+                  return (
+                    <span key={w} className={history[i]}>
+                      {w + " "}
+                    </span>
+                  );
+                } else if (i === history.length) {
+                  if (wrong)
+                    return (
+                      <span key={w}>
+                        <span className="current-word wrong">{w}</span>{" "}
+                      </span>
+                    );
+                  return (
+                    <span key={w}>
+                      <span className="current-word">
+                        <span className="correct">
+                          {w.substring(0, currentWordIndex)}
                         </span>
-                      );
-                    } else if (i === history.length) {
-                      if (wrong)
-                        return (
-                          <span key={w}>
-                            <span className="current-word wrong">{w}</span>{" "}
-                          </span>
-                        );
-                      return (
-                        <span key={w}>
-                          <span className="current-word">
-                            <span className="correct">
-                              {w.substring(0, currentWordIndex)}
-                            </span>
-                            {w.substring(currentWordIndex)}
-                          </span>{" "}
-                        </span>
-                      );
-                    } else {
-                      return w + " ";
-                    }
-                  })}
-                </p>
-                <p className="words">{futureWords.map((w) => w + " ")}</p>
-              </div>
-              <input
-                ref={inputEl}
-                type="text"
-                value={currentWord}
-                onChange={onCurrentWordChange}
-                onKeyDown={handleKeyDown}
-              />
-            </Fade>
-            <Fade in={isTesting}>
-              <Counter
-                startTime={startTime}
-                endTest={endTest}
-                index={index}
-                sum={sum}
-              />
-              <FontAwesomeIcon
-                onClick={restart}
-                className="restart"
-                size="lg"
-                icon={faSync}
-              />
-            </Fade>
-            <Results
-              open={open}
-              toggle={toggle}
-              restart={restart}
-              index={index}
-              keys={keys}
-              sum={sum}
-              currentWordIndex={currentWordIndex}
-            />
+                        {w.substring(currentWordIndex)}
+                      </span>{" "}
+                    </span>
+                  );
+                } else {
+                  return w + " ";
+                }
+              })}
+            </p>
+            <p className="words">{futureWords.map((w) => w + " ")}</p>
           </div>
-        </Route>
-      </Switch>
-    </Router>
+          <input
+            ref={inputEl}
+            type="text"
+            value={currentWord}
+            onChange={onCurrentWordChange}
+            onKeyDown={handleKeyDown}
+          />
+        </Fade>
+        <Fade in={isTesting}>
+          <Counter
+            startTime={startTime}
+            endTest={endTest}
+            index={index}
+            sum={sum}
+          />
+          <FontAwesomeIcon
+            onClick={restart}
+            className="restart"
+            size="lg"
+            icon={faSync}
+          />
+        </Fade>
+        <Results
+          open={open}
+          toggle={toggle}
+          restart={restart}
+          index={index}
+          keys={keys}
+          sum={sum}
+          currentWordIndex={currentWordIndex}
+        />
+      </div>
+    </>
   );
 }
 
